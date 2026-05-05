@@ -1,37 +1,42 @@
-# 🚀 Support Vector Machines (SVM) Project
+# 🏥 Support Vector Machines (SVM) - Health Diagnosis Prediction
 
 ## 📌 Overview
-This project demonstrates the implementation of Support Vector Machines (SVM) for classification tasks using the Iris Flower Dataset. It explores how different kernel functions impact model performance and decision boundaries.
+This project uses **Support Vector Machines (SVM)** to predict a patient's health diagnosis based on medical attributes such as blood pressure, cholesterol, BMI, and glucose levels.
 
-The objective is to build, evaluate, and compare multiple SVM models to achieve optimal classification accuracy.
+The goal is to build a classification model that can accurately distinguish between different health conditions using machine learning techniques.
 
 ---
 
 ## 📂 Project Structure
 ```
-├── data/                  # Dataset used for training and testing
-├── notebooks/             # Jupyter notebooks with step-by-step implementation
-├── src/                   # Python scripts for training & evaluation
-├── results/               # Model outputs and performance metrics
-├── visualizations/        # Plots and graphs
-├── README.md              # Project documentation
-└── requirements.txt       # Dependencies
+├── SVM.ipynb              # Main notebook with implementation
+├── health_dataset.csv     # Dataset used for training and testing
+├── requirements.txt       # Dependencies
+└── README.md              # Project documentation
 ```
 
 ---
 
 ## 📊 Dataset
-The project uses the Iris Flower Dataset, consisting of 150 samples from three species:
 
-- Iris Setosa  
-- Iris Versicolor  
-- Iris Virginica  
+The dataset (`health_dataset.csv`) contains medical records with the following features:
 
-### 🔢 Features:
-- Sepal Length  
-- Sepal Width  
-- Petal Length  
-- Petal Width  
+| Feature            | Description                          |
+|------------------|--------------------------------------|
+| blood_pressure   | Patient's blood pressure level       |
+| cholesterol      | Cholesterol level                    |
+| bmi              | Body Mass Index                      |
+| glucose          | Blood glucose level                  |
+| diagnosis        | Target variable (e.g., Healthy/Other)|
+
+### 🧾 Sample Data:
+```
+blood_pressure | cholesterol | bmi     | glucose  | diagnosis
+-------------------------------------------------------------
+120.46         | 159.02      | 25.28   | 82.06    | Healthy
+101.72         | 171.71      | 23.01   | 98.63    | Healthy
+105.30         | 128.30      | 23.48   | 106.98   | Healthy
+```
 
 ---
 
@@ -39,50 +44,59 @@ The project uses the Iris Flower Dataset, consisting of 150 samples from three s
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/27abhishek27/Support-Vector-Machines-Project.git
-cd Support-Vector-Machines-Project
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
 
 ### 2️⃣ Install dependencies
 ```bash
-pip install -r requirements.txt
+pip install numpy pandas matplotlib seaborn scikit-learn
+```
+
+### 3️⃣ Run the notebook
+```bash
+jupyter notebook SVM.ipynb
 ```
 
 ---
 
-## 🔍 Methodology
+## 🔍 Workflow
 
-### 1. Data Preprocessing
-- Checked and handled missing values  
-- Applied feature scaling (Standardization)  
-- Performed train-test split  
+### ✔ Data Preprocessing
+- Loaded dataset  
+- Checked for missing values  
+- Encoded target variable (`diagnosis`)  
+- Applied feature scaling (StandardScaler)  
+- Train-test split  
 
-### 2. Exploratory Data Analysis (EDA)
-- Visualized class distribution  
-- Analyzed feature correlations  
-- Used pairplots and boxplots to detect patterns and outliers  
+### ✔ Exploratory Data Analysis (EDA)
+- Distribution of health metrics  
+- Correlation analysis  
+- Outlier detection using boxplots  
 
-### 3. Model Training
-- ✅ Linear SVM (baseline model)  
-- ✅ Polynomial Kernel SVM  
-- ✅ RBF Kernel SVM  
-- ✅ Hyperparameter tuning using GridSearchCV  
+### ✔ Model Training
+- Linear SVM  
+- Polynomial Kernel SVM  
+- RBF Kernel SVM  
 
-### 4. Model Evaluation
+### ✔ Hyperparameter Tuning
+- Optimized:
+  - C (regularization parameter)  
+  - gamma  
+  - kernel type  
+- Used GridSearchCV  
+
+### ✔ Model Evaluation
 - Accuracy  
 - Precision, Recall, F1-score  
 - Confusion Matrix  
-- Decision Boundary Visualization  
 
 ---
 
-## 📊 Visualizations
-The `visualizations/` folder includes:
-
-- Pairplots showing class separability  
-- KDE plots for feature distributions  
-- Decision boundary plots  
-- Confusion matrix heatmaps  
+## 📊 Results & Insights
+- Feature scaling significantly improved model performance  
+- SVM effectively separates health conditions based on medical features  
+- RBF kernel performed better for complex patterns in the data  
 
 ---
 
@@ -95,24 +109,17 @@ The `visualizations/` folder includes:
 
 ---
 
-## 📌 Key Insights
-- Iris Setosa is the most linearly separable class  
-- RBF kernel performs best for non-linear decision boundaries  
-- Feature scaling significantly improves SVM performance  
-
----
-
 ## 🚀 Future Improvements
-- Feature engineering for better accuracy  
-- Compare with other models (Logistic Regression, Decision Trees, Neural Networks)  
-- Deploy using Flask or FastAPI  
+- Add more medical features for better prediction  
+- Try other models (Logistic Regression, Random Forest, XGBoost)  
+- Deploy as a health prediction web app  
 
 ---
 
-## 🤝 Contributing
-Feel free to fork this repository and contribute!
+## ⚠️ Disclaimer
+This project is for educational purposes only and should not be used for real medical diagnosis.
 
 ---
 
-## ⭐ Show Your Support
-If you like this project, give it a ⭐ on GitHub!
+## ⭐ Support
+If you found this project useful, give it a ⭐ on GitHub!
